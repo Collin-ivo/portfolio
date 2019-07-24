@@ -6,8 +6,32 @@
     <div class="first-screen__wrapper">
       {% include '../blocks/header/header.twig' %}
 
+      <div class="first-screen__promo"
+           data-aos="fade-down"
+           data-aos-duration="600"
+           data-aos-delay="500">
+        <div class="first-screen__promo-descript">
+          <p class="first-screen__small-head">Приветствую! Меня зовут Николай Иванов, я</p>
+          <span class="first-screen__big-head">Frontend-разработчик</span>
+          <h1 class="first-screen__title">
+            <span>Делаю верстку, анимации, формы, калькуляторы</span>
+          </h1>
+          <a href="#">Расчитать стоимость</a>
+        </div>
 
-      <div class="first-screen__tags js-tagcloud"></div>
+      </div>
+
+      <div class="first-screen__bottom">
+        <div class="first-screen__tags js-tagcloud"
+             data-aos="zoom-in-up"
+             data-aos-delay="700"
+             data-aos-duration="2000"></div>
+        <div class="first-screen__clients">
+          {# здесь будут логотипы сайтов к которым я приложил руку - планируется сделать параллакс #}
+        </div>
+      </div>
+
+
     </div>
   </section>
 

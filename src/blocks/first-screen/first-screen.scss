@@ -6,10 +6,48 @@
     @include display-flex(column, stretch, flex-start);
     overflow: hidden;
     height: 100%;
-    background-color: #519f6c;
+  }
+
+  &__promo {
+    @include display-flex(column, center, center);
+    text-align: center;
+    height: 50%;
+    flex-grow: 1;
+  }
+
+  &__descript {
+  }
+
+  &__small-head {
+    display: block;
+    padding: 15px;
+    text-align: center;
+  }
+
+  &__big-head {
+    @include font-size(42px, normal, 42px);
+    display: block;
+    padding: 15px;
+    text-align: center;
+    font-family: $font-family-extra-bold;
+    font-weight: 800;
+    text-transform: uppercase;
+    color: black;
+  }
+
+  &__title {
+    display: block;
+    padding: 15px;
+    text-align: center;
+  }
+
+  &__bottom {
+    @include display-flex(row, center, space-between);
+    height: 460px;
+    flex-shrink: 0;
+    padding: 30px 40px;
   }
 
   &__tags {
-    margin: auto auto 20px;
   }
 }
