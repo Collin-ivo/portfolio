@@ -1,8 +1,9 @@
 /* eslint-disable */
 
-import jQuery from './vendor/jquery-3.2.1';
+// import jQuery from './vendor/jquery-3.2.1';
+import {tagCloudSettings} from './parts/other/tagcloud-init';
 
-window.jQuery = window.$ = jQuery;
+// window.jQuery = window.$ = jQuery;
 
 (() => {
 
@@ -11,6 +12,9 @@ window.jQuery = window.$ = jQuery;
     console.log(input);
   };
   hello('Page is Ready');
+
+  console.log(tagCloudSettings);
+  $('.js-tagcloud').svg3DTagCloud(tagCloudSettings.indexTagCloudSettings);
 
 })();
 

@@ -1,8 +1,8 @@
 {
-  "name": "starting-setup",
+  "name": "frontend-portfolio",
   "version": "0.2.0",
   "private": true,
-  "description": "Standard builder for frontend project",
+  "description": "Frontend developer's portfolio",
   "author": "Nikolay Ivanov n_13@bk.ru",
   "license": "ISC",
   "main": "gulpfile.js",
