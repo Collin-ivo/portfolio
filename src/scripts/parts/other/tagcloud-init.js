@@ -56,6 +56,27 @@ const indexTagCloudSettings = {
       url: `#`,
       target: `_top`
     },
+    {
+      image: `assets/img/skills/css3.png`,
+      width: `50`,
+      height: `50`,
+      url: `#`,
+      target: `_top`
+    },
+    {
+      image: `assets/img/skills/jade.svg`,
+      width: `50`,
+      height: `50`,
+      url: `#`,
+      target: `_top`
+    },
+    {
+      image: `assets/img/skills/html5.png`,
+      width: `50`,
+      height: `50`,
+      url: `#`,
+      target: `_top`
+    },
 
   ],
   // width of tag cloud

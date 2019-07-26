@@ -2,16 +2,23 @@
   height: 100vh;
   width: 100%;
 
+  $this: &;
+
   &__wrapper {
     @include display-flex(column, stretch, flex-start);
     overflow: hidden;
     height: 100%;
+
+    #{$this}__title {
+      color: $color-red;
+    }
   }
 
   &__promo {
-    @include display-flex(column, center, center);
+    @include display-flex(column, center);
     text-align: center;
     height: 50%;
+    padding-top: 40px;
     flex-grow: 1;
   }
 
@@ -42,12 +49,70 @@
   }
 
   &__bottom {
-    @include display-flex(row, center, space-between);
-    height: 460px;
+    @include display-flex(row, stretch, space-around);
+    height: 420px;
     flex-shrink: 0;
-    padding: 30px 40px;
+    padding: 30px 40px 0;
+  }
+
+  &__subtitle {
+    text-transform: uppercase;
+    text-align: center;
   }
 
   &__tags {
+    flex-shrink: 0;
+    width: 400px;
+  }
+
+  &__clients {
+    height: 100%;
+    width: 400px;
+    flex-shrink: 0;
+  }
+
+  &__clients-list {
+    height: 100%;
+    width: 100%;
+    padding-top: 80px;
+
+    li {
+      &:first-child {
+        top: 0 !important;
+        left: 20% !important;
+      }
+      &:nth-child(2) {
+        top: 32% !important;
+        left: 14% !important;
+      }
+      &:nth-child(3) {
+        top: 27% !important;
+        left: 55% !important;
+      }
+      &:nth-child(4) {
+        top: 45% !important;
+        left: 45% !important;
+      }
+      &:nth-child(5) {
+        top: 47% !important;
+        left: 11% !important;
+      }
+    }
+  }
+
+  &__client {
+    width: 150px;
+
+    a {
+      display: block;
+      width: 100%;
+      max-width: 100%;
+      pointer-events: all
+    }
+
+    img {
+      width: 100%;
+      height: auto;
+    }
   }
 }
