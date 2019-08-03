@@ -1,25 +1,44 @@
 .first-screen {
-  height: 100vh;
   width: 100%;
 
   $this: &;
 
   &__wrapper {
     @include display-flex(column, stretch, flex-start);
+    position: relative;
     overflow: hidden;
-    height: 100%;
+    min-height: 100vh;
 
     #{$this}__title {
       color: $color-red;
     }
+
+    @include w-to($screen-md) {
+      display: block;
+    }
+  }
+
+  &__back {
+    position: absolute;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(white, 0.9);
   }
 
   &__promo {
     @include display-flex(column, center);
+    position: relative;
     text-align: center;
-    height: 50%;
     padding-top: 40px;
     flex-grow: 1;
+    z-index: 2;
+
+    @include w-to($screen-lg) {
+      padding-top: 20px;
+    }
+    @include w-to($screen-md) {
+      padding-top: 0;
+    }
   }
 
   &__descript {
@@ -29,6 +48,12 @@
     display: block;
     padding: 15px;
     text-align: center;
+
+    @include w-to($screen-md) {
+      span:first-child {
+        display: block;
+      }
+    }
   }
 
   &__big-head {
@@ -39,41 +64,125 @@
     font-family: $font-family-extra-bold;
     font-weight: 800;
     text-transform: uppercase;
-    color: black;
+    color: $color-text-default;
+
+    @include w-to($screen-lg) {
+      @include font-size(32px, normal, 32px);
+    }
+    @include w-to($screen-md) {
+      @include font-size(28px, normal, 28px);
+    }
   }
 
   &__title {
     display: block;
     padding: 15px;
     text-align: center;
+
+    @include w-to($screen-lg) {
+
+    }
+  }
+
+  @keyframes show-menu {
+    from {transform: translateX(1000px)}
+    to {transform: translateX(0)}
+  }
+
+  &__menu {
+    @include display-flex(row, stretch, center);
+    margin: -5px;
+
+    li {
+      position: relative;
+      margin: 5px;
+
+      &:hover > ul,
+      &:focus > ul {
+        visibility: visible;
+        transform: translateX(0);
+        opacity: 1;
+        animation-name: show-menu;
+        animation-duration: 500ms;
+      }
+    }
+  }
+
+  &__submenu {
+    position: absolute;
+    right:0;
+    width: 100%;
+    margin: 0 -5px;
+    z-index: 10;
+    visibility: hidden;
+    opacity: 0;
+    transform: translateX(1000px);
+    transition-duration: 500ms;
+    transition-property: opacity;
+
+    &.mod-contacts {
+      right: unset;
+      left: 0;
+      width: 160px;
+    }
+
+    a {
+      box-sizing: border-box;
+      width: 100%;
+      background-color: white;
+    }
   }
 
   &__bottom {
     @include display-flex(row, stretch, space-around);
-    height: 420px;
+    position: relative;
+    min-height: 420px;
     flex-shrink: 0;
     padding: 30px 40px 0;
+    z-index: 1;
+
+    @include w-to($screen-md) {
+      display: block;
+      padding: 40px 15px 0;
+    }
   }
 
   &__subtitle {
     text-transform: uppercase;
     text-align: center;
+    letter-spacing: 1.2px;
+
+    @include w-to($screen-md) {
+      @include font-size(14px);
+    }
   }
 
   &__tags {
     flex-shrink: 0;
     width: 400px;
+
+    @include w-to($screen-md) {
+      @include display-flex(row, stretch, center);
+      box-sizing: border-box;
+      width: calc(100% + 30px);
+      margin: -30px -15px 0;
+    }
   }
 
   &__clients {
-    height: 100%;
     width: 400px;
     flex-shrink: 0;
+
+    @include w-to($screen-md) {
+      @include display-flex(column, center);
+      width: 100%;
+    }
   }
 
   &__clients-list {
-    height: 100%;
+    min-height: 300px;
     width: 100%;
+    max-width: 400px;
     padding-top: 80px;
 
     li {
@@ -82,20 +191,48 @@
         left: 20% !important;
       }
       &:nth-child(2) {
-        top: 32% !important;
+        top: 44% !important;
         left: 14% !important;
       }
       &:nth-child(3) {
-        top: 27% !important;
+        top: 37% !important;
         left: 55% !important;
       }
       &:nth-child(4) {
-        top: 45% !important;
+        top: 55% !important;
         left: 45% !important;
       }
       &:nth-child(5) {
-        top: 47% !important;
+        top: 68% !important;
         left: 11% !important;
+      }
+    }
+
+    @include w-to($screen-md) {
+      min-height: 300px;
+      padding-top: 20px;
+
+      li {
+        &:first-child {
+          top: 0 !important;
+          left: 20% !important;
+        }
+        &:nth-child(2) {
+          top: 32% !important;
+          left: 0 !important;
+        }
+        &:nth-child(3) {
+          top: 27% !important;
+          left: 55% !important;
+        }
+        &:nth-child(4) {
+          top: 45% !important;
+          left: 48% !important;
+        }
+        &:nth-child(5) {
+          top: 59% !important;
+          left: 2% !important;
+        }
       }
     }
   }

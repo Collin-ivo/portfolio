@@ -1,6 +1,6 @@
 /* eslint-disable */
-
-const css = `
+export default function() {
+  const css = `
   .js-debug-menu {
     display: none;
     width: 220px;
@@ -81,49 +81,50 @@ const css = `
   }
 `;
 
-fetch('assets/other/debug-menu-data.json')
-  .then(response => response.json())
-  .then(data => {
-    const menu = generateMenu(data);
-    const style = document.createElement('style');
-    style.innerHTML = css;
+  fetch('assets/other/debug-menu-data.json')
+    .then(response => response.json())
+    .then(data => {
+      const menu = generateMenu(data);
+      const style = document.createElement('style');
+      style.innerHTML = css;
 
-    document.querySelector('body').appendChild(menu);
-    document.querySelector('body').insertBefore(style, menu);
-  });
+      document.querySelector('body').appendChild(menu);
+      document.querySelector('body').insertBefore(style, menu);
+    });
 
-function generateMenu(data) {
-  let menu = '<div class="js-debug-menu open">';
-  menu += '<ul class="js-debug-menu__list">';
+  function generateMenu(data) {
+    let menu = '<div class="js-debug-menu open">';
+    menu += '<ul class="js-debug-menu__list">';
 
-  for (const item of data) {
-    if (item.items) {
-      menu += `<li class="${item.mod ? item.mod : ''}" 
+    for (const item of data) {
+      if (item.items) {
+        menu += `<li class="${item.mod ? item.mod : ''}" 
                    onclick="this.classList.toggle('open')"
                >${item.title} ▾`;
-      menu += '<ul class="js-debug-menu__section">';
+        menu += '<ul class="js-debug-menu__section">';
 
-      for (const it of item.items) {
-        menu += `<li class="${it.mod ? it.mod : ''}"><a href="${it.link}">${it.title}</a></li>`;
+        for (const it of item.items) {
+          menu += `<li class="${it.mod ? it.mod : ''}"><a href="${it.link}">${it.title}</a></li>`;
+        }
+
+        menu += '</ul>';
+        menu += '</li>';
+      } else {
+        menu += `<li class="${item.mod ? item.mod : ''}"><a href="${item.link}">${
+          item.title
+          }</a></li>`;
       }
-
-      menu += '</ul>';
-      menu += '</li>';
-    } else {
-      menu += `<li class="${item.mod ? item.mod : ''}"><a href="${item.link}">${
-        item.title
-      }</a></li>`;
     }
-  }
 
-  menu += '</ul>';
-  menu += `<div class="js-debug-menu__close" 
+    menu += '</ul>';
+    menu += `<div class="js-debug-menu__close" 
                 onclick="document.querySelector('.js-debug-menu').classList.toggle('open')"
            >×</div>`;
-  menu += '</div>';
+    menu += '</div>';
 
-  const div = document.createElement('div');
-  div.innerHTML = menu;
+    const div = document.createElement('div');
+    div.innerHTML = menu;
 
-  return div;
-}
+    return div;
+  }
+};

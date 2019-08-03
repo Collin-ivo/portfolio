@@ -3,22 +3,46 @@
 {% block body %}
 
   <section class="first-screen">
-    <div class="first-screen__wrapper">
-      {% include '../blocks/header/header.twig' %}
+    <div class="first-screen__wrapper wrapper">
+      <div class="first-screen__back">
+        <div class="anim-lamp anim-lamp__1">
+          <div class="anim-lamp__rope"><img height="150" src="assets/img/foranimation/rope-1.png" alt=""></div>
+          <div class="anim-lamp__lantern"><img height="150" src="assets/img/foranimation/lantern.png" alt=""></div>
+        </div>
+        <div class="anim-lamp anim-lamp__2">
+          <div class="anim-lamp__rope"><img height="150" src="assets/img/foranimation/rope-1.png" alt=""></div>
+          <div class="anim-lamp__lantern"><img height="150" src="assets/img/foranimation/lantern.png" alt=""></div>
+        </div>
+      </div>
 
       <div class="first-screen__promo"
            data-aos="fade-down"
            data-aos-duration="600"
            data-aos-delay="500">
         <div class="first-screen__promo-descript">
-          <p class="first-screen__small-head">Приветствую! Меня зовут Николай Иванов, я</p>
+          <p class="first-screen__small-head"><span>Приветствую!</span> Меня зовут Николай Иванов, я</p>
           <span class="first-screen__big-head">Frontend-разработчик</span>
           <h1 class="first-screen__title">
             <span>Делаю верстку, анимации, формы, калькуляторы</span>
           </h1>
-          <a href="#">Нанять на проект</a>
+          <ul class="first-screen__menu">
+            <li tabindex="0">
+              <a class="button" href="#">Мои контакты</a>
+              <ul class="first-screen__submenu mod-contacts">
+                <li><a class="button" href="tel: +79062800302">Тел/Telegramm: +7(906)280-03-02</a></li>
+                <li><a class="button" href="mailto: n_13@bk.ru">E-mail: n_13@bk.ru</a></li>
+              </ul>
+            </li>
+            <li tabindex="0">
+              <a class="button" href="#">Посмотреть портфолио</a>
+              <ul class="first-screen__submenu">
+                <li><a class="button" href="http://mishka.coldev.ru" target="_blank">Mishka</a></li>
+                <li><a class="button" href="http://catenergy.coldev.ru" target="_blank">CatEnergy</a></li>
+                <li><a class="button" href="http://meetme24.coldev.ru/home-page.html" target="_blank">MeetMe24</a></li>
+              </ul>
+            </li>
+          </ul>
         </div>
-
       </div>
 
       <div class="first-screen__bottom">
@@ -26,21 +50,25 @@
           <h3 class="first-screen__subtitle"
               data-aos="fade-right"
               data-aos-duration="400"
-              data-aos-delay="600">Этими инструментами <br> я пользуюсь</h3>
+              data-aos-delay="600"
+              data-aos-anchor-placement="top-bottom">Этими инструментами <br> я пользуюсь</h3>
           <div class="first-screen__tags js-tagcloud"
                data-aos="zoom-in-up"
                data-aos-delay="700"
-               data-aos-duration="2000"></div>
+               data-aos-duration="2000"
+               data-aos-anchor-placement="top-bottom"></div>
         </div>
         <div class="first-screen__clients">
           <h3 class="first-screen__subtitle"
               data-aos="fade-left"
               data-aos-duration="400"
-              data-aos-delay="600">К этим сайтам <br> я приложил руку</h3>
+              data-aos-delay="600"
+              data-aos-anchor-placement="top-bottom">К этим сайтам <br> я приложил руку</h3>
           <ul class="first-screen__clients-list js-parallax"
               data-aos="zoom-in-up"
               data-aos-delay="700"
-              data-aos-duration="2000">
+              data-aos-duration="2000"
+              data-aos-anchor-placement="top-bottom">
             <li class="first-screen__client"
                 data-depth="0.2">
               <a href="http://benetton.com" target="_blank"><img src="assets/img/clients/benetton.svg" alt=""></a>

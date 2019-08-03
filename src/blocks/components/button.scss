@@ -1,0 +1,16 @@
+.button {
+  @include display-flex(row, center, center);
+  display: inline-flex;
+  padding: 5px 10px;
+  border: thin solid $color-border;
+  background-color: transparent;
+  transition-duration: $transition-normal;
+  transition-property: background-color, border, color;
+
+  &:hover,
+  &:focus {
+    background-color: $color-green;
+    border: thin solid $color-green;
+    color: white;
+  }
+}

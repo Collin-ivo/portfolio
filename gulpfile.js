@@ -44,7 +44,6 @@ gulp.task(`scripts`, () => {
 gulp.task(`copy-api`, () => {
   return gulp.src([
     `src/scripts/api.js`,
-    `src/scripts/frontend-debug-menu.js`,
     `src/scripts/vendor/**/*.js`])
     .pipe(plumber())
     .pipe(gulp.dest(`build/scripts/`));

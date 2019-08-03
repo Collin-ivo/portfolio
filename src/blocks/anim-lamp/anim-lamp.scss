@@ -1,0 +1,114 @@
+.anim-lamp {
+  position: absolute;
+  width: 100px;
+  top: -10px;
+  transform-origin: -10px 50%;
+  animation-duration: 4s;
+  animation-iteration-count: infinite;
+  //animation-direction: alternate;
+  animation-timing-function: linear;
+
+  @include w-to($screen-md) {
+    display: none;
+  }
+
+  $this: &;
+
+  &__1 {
+    left: 80px;
+    animation-name: rope-pendulum;
+
+    #{$this}__lantern img {
+      //animation-name: lantern-pendulum;
+    }
+  }
+  &__2 {
+    right: 80px;
+    animation-name: rope-pendulum-reverse;
+
+    #{$this}__lantern img {
+      //animation-name: lantern-pendulum;
+    }
+  }
+
+  &__rope {
+    position: absolute;
+    top: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 11;
+  }
+
+  &__lantern {
+    position: absolute;
+    top: 135px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10;
+
+    img {
+      animation-duration: 4s;
+      animation-iteration-count: infinite;
+      animation-timing-function: linear;
+    }
+  }
+}
+
+@keyframes rope-pendulum {
+   0% {
+     transform: rotate(5deg);
+   }
+   50% {
+     transform: rotate(-5deg);
+   }
+   100% {
+     transform: rotate(5deg);
+   }
+ }
+
+@keyframes rope-pendulum-reverse {
+  0% {
+    transform: rotate(-5deg);
+  }
+  50% {
+    transform: rotate(5deg);
+  }
+  100% {
+    transform: rotate(-5deg);
+  }
+}
+
+@keyframes lantern-pendulum {
+  0% {
+    transform: rotate(0);
+    transform-origin: 0 50%;
+  }
+  25% {
+    transform: rotate(6deg);
+    transform-origin: 10px 50%;
+  }
+  50% {
+    transform: rotate(0);
+    transform-origin: 0 50%;
+  }
+  75% {
+    transform: rotate(-6deg);
+    transform-origin: 10px 50%;
+  }
+  100% {
+    transform: rotate(0);
+    transform-origin: 0 50%;
+  }
+}
+
+//@keyframes lantern-pendulum-reverse {
+//  0% {
+//    transform: rotate(-6deg);
+//  }
+//  50% {
+//    transform: rotate(6deg);
+//  }
+//  100% {
+//    transform: rotate(-6deg);
+//  }
+//}
