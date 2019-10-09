@@ -3,10 +3,6 @@
   width: 100px;
   top: -10px;
   transform-origin: -10px 50%;
-  animation-duration: 4s;
-  animation-iteration-count: infinite;
-  //animation-direction: alternate;
-  animation-timing-function: linear;
 
   @include w-to($screen-md) {
     display: none;
@@ -16,7 +12,6 @@
 
   &__1 {
     left: 80px;
-    animation-name: rope-pendulum;
 
     #{$this}__lantern img {
       //animation-name: lantern-pendulum;
@@ -24,10 +19,8 @@
   }
   &__2 {
     right: 80px;
-    animation-name: rope-pendulum-reverse;
 
     #{$this}__lantern img {
-      //animation-name: lantern-pendulum;
     }
   }
 
@@ -47,9 +40,7 @@
     z-index: 10;
 
     img {
-      animation-duration: 4s;
-      animation-iteration-count: infinite;
-      animation-timing-function: linear;
+	
     }
   }
 }
